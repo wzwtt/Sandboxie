@@ -2154,7 +2154,7 @@ void CSandMan::UpdateCertState()
 {
 	g_CertInfo.State = theAPI->GetCertState();
 
-#ifdef _DEBUG
+ #ifdef _DEBUG
 	int CertificateStatus = theConf->GetInt("Debug/CertificateStatus", -1);
 	switch (CertificateStatus)
 	{
@@ -2175,7 +2175,9 @@ void CSandMan::UpdateCertState()
 		break;
 	}
 #endif
-
+	
+        g_CertInfo.State = 0; 
+	
 	if (g_CertInfo.evaluation)
 	{
 		if (g_CertInfo.expired)
